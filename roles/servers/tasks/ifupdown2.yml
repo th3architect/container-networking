@@ -7,6 +7,9 @@
 
 - name: Install ifupdown2
   apt: name=ifupdown2
+  # https://support.cumulusnetworks.com/hc/en-us/articles/216130037-Using-ifupdown2-on-Ubuntu
+
+
 # - name: Check that this is Ubuntu 14.04 to Proceed
 #   shell: 'cat /etc/lsb-release | grep DISTRIB_RELEASE | cut -d "=" -f2'
 #   register: distribution
