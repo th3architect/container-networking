@@ -1,0 +1,24 @@
+---
+- hosts: spines
+  become: yes
+  roles:
+    - common
+    - spines
+  handlers:
+    - include: handlers/main.yml
+
+- hosts: leafs
+  become: yes
+  roles:
+    - common
+    - leafs
+  handlers:
+    - include: handlers/main.yml
+
+- hosts: servers
+  become: yes
+  roles:
+    - servers
+    # - common
+  handlers:
+    - include: handlers/main.yml
