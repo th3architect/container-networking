@@ -6,6 +6,7 @@
     - spines
   handlers:
     - include: handlers/main.yml
+      static: yes
 
 - hosts: leafs
   become: yes
@@ -14,6 +15,19 @@
     - leafs
   handlers:
     - include: handlers/main.yml
+      static: yes
+
+- hosts: xenials 
+  gather_facts: False 
+  become: yes
+  tasks: 
+    - name: apt-get update 
+      raw: apt-get update -qq 
+    - name: Install python 2.7 
+      raw: apt-get install -qq python2.7
+    - name: Link Python 2.7
+      raw: sudo ln -s /usr/bin/python2.7 /usr/bin/python
+      ignore_errors: yes
 
 - hosts: servers
   become: yes
@@ -22,3 +36,4 @@
     # - common
   handlers:
     - include: handlers/main.yml
+      static: yes
