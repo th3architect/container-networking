@@ -6,10 +6,10 @@ interfaces:
       ipv6: "fd::1/128"
       ipv4: "10.0.0.1/32"
 
-    swp1:
+    enp0s8:
       alias: "To leaf 1"
 
-    swp2:
+    enp0s9:
       alias: "To leaf 2"
 
   server2:
@@ -17,22 +17,19 @@ interfaces:
       ipv6: "fd::2/128"
       ipv4: "10.0.0.2/32"
 
-    swp1:
+    enp0s8:
       alias: "To leaf 3"
 
-    swp2:
+    enp0s9:
       alias: "To leaf 4"
 
 bgp:
 
   server1:
     asn: "65501"
-    tor_ports: ["swp1", "swp2"]
+    tor_ports: ["enp0s8", "enp0s9"]
 
   server2:
     asn: "65502"
-    tor_ports: ["swp1", "swp2"]
+    tor_ports: ["enp0s8", "enp0s9"]
 
-  server3:
-    asn: "65503"
-    tor_ports: ["swp1", "swp2"]
