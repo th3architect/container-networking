@@ -7,9 +7,3 @@
 
 - name: reload quagga
   service: name=quagga state=reloaded
-
-- name: restart apache
-  service: name=apache2 state=restarted
-
-- name: start clcmd_server
-  service: name=clcmd_server state=started enabled=yes
