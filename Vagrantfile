@@ -6,12 +6,14 @@ groups = {
   "leafs" => ["leaf1", "leaf2", "leaf3", "leaf4"],
   "servers" => ["server1", "server2", "server3"],
   "network:children" => ["spines", "leafs"],
+  "xenials" => ["server1"]
 }
 
 
 Vagrant.configure("2") do |config|
 
-  cumulus_image = "CumulusCommunity/cumulus-vx"
+  cumulus_image = "CumulusCommunity/VX-3.0"
+  #server_image = "ubuntu/trusty64"
   server_image = "ubuntu/xenial64"
   link_seed = Random.rand(999.999).to_s
 
