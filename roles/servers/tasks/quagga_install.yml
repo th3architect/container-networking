@@ -1,0 +1,24 @@
+---
+# Iproute is required for quagga
+- name: Install iproute
+  apt: name=iproute state=present
+
+- name: Download Quagga
+  get_url: >
+    url=http://repo3.cumulusnetworks.com/repo/pool/cumulus/q/quagga/quagga_0.99.23.1-1+cl3u2_amd64.deb
+    dest=/home/ubuntu/quagga.deb
+
+- name: Install Quagga
+  apt: deb=/home/ubuntu/quagga.deb
+  register: install_quagga
+
+- name: Copy Quagga daemons file
+  copy: src=daemons dest=/etc/quagga/daemons backup=yes
+  notify: restart quagga
+
+- name: Enable Quagga Reload
+  copy: src=quagga dest=/etc/default/quagga
+  notify: restart quagga
+
+- name: Force quagga changes
+  meta: flush_handlers
