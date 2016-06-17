@@ -1,7 +1,7 @@
 {% set node = interfaces[ansible_hostname] -%}
 
-auto eth0
-iface eth0 inet dhcp
+auto enp0s3
+iface enp0s3 inet dhcp
 
 {% for interface in node.keys() -%}
 auto {{interface}}

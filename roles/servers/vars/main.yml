@@ -32,4 +32,3 @@ bgp:
   server2:
     asn: "65502"
     tor_ports: ["enp0s8", "enp0s9"]
-
