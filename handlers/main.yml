@@ -7,3 +7,6 @@
 
 - name: reload quagga
   service: name=quagga state=reloaded
+
+- name: start lldp
+  service: name=lldpd state=started enabled=yes
