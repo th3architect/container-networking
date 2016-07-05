@@ -6,10 +6,10 @@
 - name: Download Quagga
   get_url: >
     url=http://repo3.cumulusnetworks.com/repo/pool/cumulus/q/quagga/quagga_0.99.23.1-1+cl3u2_amd64.deb
-    dest=/home/ubuntu/quagga.deb
+    dest=/home/vagrant/quagga.deb
 
 - name: Install Quagga
-  apt: deb=/home/ubuntu/quagga.deb
+  apt: deb=/home/vagrant/quagga.deb
   register: install_quagga
 
 - name: Copy Quagga daemons file

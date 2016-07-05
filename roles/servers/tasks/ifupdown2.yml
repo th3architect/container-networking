@@ -1,13 +1,13 @@
 ---
 # Setuptools is required for ifupdown2
 - name: Check if setuptools is installed
-  stat: >
-    path=/usr/local/lib/python2.7/dist-packages/setuptools-23.0.0-py2.7.egg
+  stat:
+    path: /usr/local/bin/easy_install
   register: setuptools
 
 - name: Download setuptools
   get_url: >
-    url=https://bootstrap.pypa.io/ez_setup.py dest=/home/ubuntu/ez_setup.py
+    url=https://bootstrap.pypa.io/ez_setup.py dest=/home/vagrant/ez_setup.py
   when: not setuptools.stat.exists
 
 - name: Install setuptools
@@ -22,11 +22,11 @@
 - name: Download ifupdown2
   get_url: >
     url=http://repo3.cumulusnetworks.com/repo/pool/cumulus/i/ifupdown2/ifupdown2_1.1-cl3u3_all.deb
-    dest=/home/ubuntu/ifupdown2.deb
+    dest=/home/vagrant/ifupdown2.deb
 
 # Cumulus ifupdown2 hasn't been upstreamed yet. Install it from their repo
 - name: Update ifupdown2 with latest cumulus version
-  apt: deb=/home/ubuntu/ifupdown2.deb
+  apt: deb=/home/vagrant/ifupdown2.deb
 
 # Bridge-utils is required for ifupdown2
 - name: Install bridge-utils
